@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const ButtonBackToHome = () => {
+export const ButtonBack = (props) => {
+  const { direction, name } = props
   return (
     <Link
       className='button is-info'
-      to='/'>
-      Back to home
+      to={direction}>
+      Back to {name}
   </Link>
   )
 }

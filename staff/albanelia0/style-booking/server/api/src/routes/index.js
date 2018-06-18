@@ -84,7 +84,6 @@ router.get('/booking/hours/:year/:month', (req, res) => {
 
   router.get('/booking/hours/:year/:month/:day', (req, res) => {
     const { params: { year, month, day } } = req
-    
     logic.getBookingHoursForYearMonthDay(year, month, day)
       .then((data) => {
         res.status(200)
@@ -98,16 +97,15 @@ router.get('/booking/hours/:year/:month', (req, res) => {
 
   router.post('/booking', [jwtValidator, bodyParser.json()], (req, res) => {
     const { body: { userId, serviceIds, date } } = req
-
-  logic.placeBooking(userId, serviceIds, date)
-      .then((booking) => {
-        res.status(201)
-        res.json({ status: 'OK', data: booking })
-      })
-      .catch(({ message }) => {
-        res.status(400)
-        res.json({ status: 'KO', error: message })
-      })
+    logic.placeBooking(userId, serviceIds, date)
+        .then((booking) => {
+          res.status(201)
+          res.json({ status: 'OK', data: booking })
+        })
+        .catch(({ message }) => {
+          res.status(400)
+          res.json({ status: 'KO', error: message })
+        })
   })
 
 router.get('/ownerId/:ownerId/booking', jwtValidator, (req, res) => {

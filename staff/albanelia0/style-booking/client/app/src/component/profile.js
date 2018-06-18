@@ -6,19 +6,21 @@ class Profile extends Component {
   state = {
     userBookings: <div />,
     result: [],
+
   }
 
   componentWillMount() {
+
     this.listBookingUser().then(bookings => {
       this.setState({ userBookings: bookings })
     })
   }
 
   listBookingUser = () => {
-    let token = localStorage.getItem("token")
-    logic.setToken(token)
-    if (token) {
 
+    let token = localStorage.getItem('token')
+
+    if (token) {
       let userId = localStorage.getItem("id")
       return logic.listBookingUser(userId)
         .then(result => {
@@ -32,6 +34,13 @@ class Profile extends Component {
   }
   aler(){
     alert('funciona!!')
+  }
+
+  logout(){
+
+    this.props.history.push('/')
+    localStorage.clear()
+
   }
 
   listBookingBox = () => {

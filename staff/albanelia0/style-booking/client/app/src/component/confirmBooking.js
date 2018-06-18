@@ -27,23 +27,26 @@ class ConfirmBooking extends Component {
 
   createTheBookingUser = () => {
     let token = localStorage.getItem('token')
-    logic.setToken(token)
-    createBooking().then(res => {
-      console.log(res)
-      if (res) {
-        swal({
-          type: 'success',
-          title: 'Reserva completada! ves a tu perfil!',
-        })
-        this.props.history.push('/profile')
-      } else {
-        let date = localStorage.getItem("date")
-        console.log(date)
-        let _date = date.replace(/\,/g, "/")
-        console.log(_date)
-        this.props.history.push(`/calendar/${_date}`)
-      }
-    })
+    console.log('CONFIRM-TOKEN', token)
+    if (token) {
+      
+      createBooking().then(res => {
+        console.log(res)
+        if (res) {
+          swal({
+            type: 'success',
+            title: 'Reserva completada! ves a tu perfil!',
+          })
+          this.props.history.push('/profile')
+        } else {
+          let date = localStorage.getItem("date")
+          console.log(date)
+          let _date = date.replace(/\,/g, "/")
+          console.log(_date)
+          this.props.history.push(`/calendar/${_date}`)
+        }
+      })
+    }
   }
 
   render() {

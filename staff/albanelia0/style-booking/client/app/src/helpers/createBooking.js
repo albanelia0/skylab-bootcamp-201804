@@ -10,6 +10,7 @@ function createBooking() {
   let date = localStorage.getItem("date")
   let hour = localStorage.getItem("hour")
   
+  
   const _date = moment(date + " " + hour).format()
   console.log(_date)
 

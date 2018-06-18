@@ -191,11 +191,6 @@ const logic = {
           })
       })
   },
-
-  setToken(token){
-    this.token = token
-  },
-
   /**
      * Returns the booking hours (on existing days) for a given year and month
      *

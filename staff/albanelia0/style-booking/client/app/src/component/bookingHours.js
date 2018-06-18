@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import logic from '../logic'
 import Calendar from './calendar'
+import { ButtonBack } from './buttonBack'
 import swal from 'sweetalert2'
 import createBooking from '../helpers/createBooking'
 import '../design/bookingHours.css'
@@ -111,6 +112,7 @@ class BookingHours extends Component {
         <div className="content-hours">
           {this.displayHours()}
         </div>
+        <ButtonBack name='Calendar' direction={`/calendar/${this.state.date[0]}/${this.state.date[1]}`} />
       </div>
     )
   }

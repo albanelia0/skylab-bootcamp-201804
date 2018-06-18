@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import 'react-router-dom'
-import { ButtonBackToHome } from './buttonBackToHome'
+import { ButtonBack } from './buttonBack'
 import { Login } from './login'
 import moment from 'moment'
 import logic from '../logic'
@@ -97,6 +97,7 @@ class Calendar extends Component {
 }
 
 render() {
+
   const monthOfYear = moment(new Date(this.state.year, this.state.month, this.state.day)).format("MMM")
   return (
     <div className="container">
@@ -108,7 +109,7 @@ render() {
         {this.renderBookingData()}
       </section>
       <div className="footerCalendar">
-        <ButtonBackToHome />
+        <ButtonBack name='home' direction='/'/>
       </div>
     </div>
   )

@@ -55,7 +55,6 @@ export class Register extends Component {
         }
         logic.registerUser(body)
           .then(data => {
-            console.log(data)
             if (data) {
               this.setState({ conditionForGoToLogin: true })
               swal({

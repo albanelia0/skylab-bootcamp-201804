@@ -47,17 +47,20 @@ const logic = {
     return logicApi.listBookingsUser(userId)
   },
   
-  localStorageGetItem(...item) {
-    return localStorage.getItem(...item)
+  localStorageGetItem(item) {
+    return localStorage.getItem(item)
   },
 
-  localStorageSetItem(...item) {
-     localStorage.setItem(...item)
+  localStorageSetItem(item) {
+     localStorage.setItem(item)
   },
 
   setToken(token){
-    logicApi.setToken(token)
+    let _token = token
+    return _token
+
   }
+
 }
 
 export default logic

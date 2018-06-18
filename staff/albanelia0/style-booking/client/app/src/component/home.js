@@ -52,12 +52,12 @@ class Home extends Component {
           </section>
             <div className="columns is-vcentered">
               <div className="column is-5">
-                <figure className="image is-4by3">
-                  <img src={this.state.image} alt="Description" />
-                  {/* <div
+                <figure className="image">
+                  {/* <img src={this.state.image} alt="Description" /> */}
+                  <div
                     className="the-image"
                     style={{ backgroundImage: `url(${this.state.image})` }}
-                  /> */}
+                  />
                 </figure>
               </div>
               <div className="column is-6 is-offset-1">
