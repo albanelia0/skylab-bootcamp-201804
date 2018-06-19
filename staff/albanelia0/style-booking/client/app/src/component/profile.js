@@ -6,27 +6,6 @@ import '../design/profile.css'
 
 class Profile extends Component {
   state = {
-<<<<<<< HEAD
-    userBookings: <div />,
-    result: [],
-
-  }
-
-  componentWillMount() {
-
-    this.listBookingUser().then(bookings => {
-      this.setState({ userBookings: bookings })
-    })
-  }
-
-  listBookingUser = () => {
-
-    let token = localStorage.getItem('token')
-
-    if (token) {
-      let userId = localStorage.getItem("id")
-      return logic.listBookingUser(userId)
-=======
     result: []
   }
 
@@ -43,7 +22,6 @@ class Profile extends Component {
       let userId = logic.localStorageGetItem("id")
 
       logic.listBookingUser(userId)
->>>>>>> feature/style-booking-client
         .then(result => {
           this.setState({ result })
         })
@@ -82,15 +60,6 @@ class Profile extends Component {
     return _duration
   }
 
-<<<<<<< HEAD
-  logout(){
-
-    this.props.history.push('/')
-    localStorage.clear()
-
-  }
-=======
->>>>>>> feature/style-booking-client
 
   listBookingBox = () => {
 

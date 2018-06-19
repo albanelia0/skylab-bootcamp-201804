@@ -113,11 +113,7 @@ class BookingHours extends Component {
         <div className="content-hours">
           {this.displayHours()}
         </div>
-<<<<<<< HEAD
-        <ButtonBack name='Calendar' direction={`/calendar/${this.state.date[0]}/${this.state.date[1]}`} />
-=======
         <ButtonBack name="Calendar" direction={`/calendar/${this.state.date[0]}/${this.state.date[1]}`} />
->>>>>>> feature/style-booking-client
       </div>
     )
   }
