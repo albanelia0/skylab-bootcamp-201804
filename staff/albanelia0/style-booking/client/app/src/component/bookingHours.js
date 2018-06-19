@@ -4,7 +4,6 @@ import Calendar from './calendar'
 import { ButtonBack } from './buttonBack'
 import swal from 'sweetalert2'
 import createBooking from '../helpers/createBooking'
-import {ButtonBack} from './buttonBack'
 import '../design/bookingHours.css'
 
 const START_DAY = 8
