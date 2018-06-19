@@ -11,6 +11,7 @@ class Navbar extends Component {
 
   componentDidMount() {
 
+<<<<<<< HEAD
     let token = localStorage.getItem('token')
     if (token) {
       this.setState({
@@ -18,6 +19,19 @@ class Navbar extends Component {
       })
     }
     console.log('EEESSSEEEE ==>',token)
+=======
+    let token = logic.localStorageGetItem("token")
+    if (token) {
+      this.setState({
+        token: token
+      })
+    }
+
+  }
+  logout = (props) =>{
+
+    localStorage.clear()
+>>>>>>> feature/style-booking-client
 
   }
 
@@ -32,21 +46,29 @@ class Navbar extends Component {
                 <div className="logo">
                   <p className="subtitle">Victoria Style</p>
                 </div>
-                <span className="navbar-burger burger" data-target="navbarMenu">
+                {/* <span className="navbar-burger burger" data-target="navbarMenu">
                   <span></span>
                   <span></span>
                   <span></span>
-                </span>
+                </span> */}
               </div>
               <div id="navbarMenu" className="navbar-menu">
                 <div className="navbar-end">
                   <div className="tabs is-right">
+<<<<<<< HEAD
                     {this.state.token?
+=======
+                    {this.state.token ?
+>>>>>>> feature/style-booking-client
                       <ul className="subtitle is-4">
                         <li className="is-active"><Link to="/" >Home</Link></li>
                         <li><a href="">Contacta</a></li>
                         <li><Link to="/profile">Profile</Link></li>
+<<<<<<< HEAD
                         <li><Link to="/login">Logout</Link></li>
+=======
+                        <li onClick={() => this.logout()}><Link to="/">Logout</Link></li> 
+>>>>>>> feature/style-booking-client
                       </ul>
                       :
                       <ul className="subtitle is-4">

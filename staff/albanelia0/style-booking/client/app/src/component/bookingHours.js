@@ -4,6 +4,7 @@ import Calendar from './calendar'
 import { ButtonBack } from './buttonBack'
 import swal from 'sweetalert2'
 import createBooking from '../helpers/createBooking'
+import {ButtonBack} from './buttonBack'
 import '../design/bookingHours.css'
 
 const START_DAY = 8
@@ -19,15 +20,15 @@ class BookingHours extends Component {
   }
 
   finishBooking = (hour) => {
-
-    localStorage.setItem("date", this.state.date)
-    localStorage.setItem("hour", hour)
-
+    
+    logic.localStorageSetItem("date", this.state.date)
+    logic.localStorageSetItem("hour", hour)
+    
     // if (result) {
 
     // PASARLO A SWEETALERT2
-
-    let token = localStorage.getItem("token")
+    
+    let token = logic.localStorageGetItem("token")
     if (!token) {
       swal({
         type: 'success',
@@ -93,7 +94,7 @@ class BookingHours extends Component {
       }
 
       return (
-        <div key={hour} className='card  card-hours'>
+        <div key={hour} className={bookingClass == 'has-text-danger' ? 'card  card-hours-inavailable' : 'card card-hours'} >
           <div className="card-content">
             <h1 onClick={() => this.finishBooking(hour.hour)} className={`title ${bookingClass}`}>{hour.hour}</h1>
           </div>
@@ -112,7 +113,11 @@ class BookingHours extends Component {
         <div className="content-hours">
           {this.displayHours()}
         </div>
+<<<<<<< HEAD
         <ButtonBack name='Calendar' direction={`/calendar/${this.state.date[0]}/${this.state.date[1]}`} />
+=======
+        <ButtonBack name="Calendar" direction={`/calendar/${this.state.date[0]}/${this.state.date[1]}`} />
+>>>>>>> feature/style-booking-client
       </div>
     )
   }

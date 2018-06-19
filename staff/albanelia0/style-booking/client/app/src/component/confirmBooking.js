@@ -12,12 +12,15 @@ class ConfirmBooking extends Component {
     bookingHour: '',
   }
 
-  componentWillMount() {
-    let checkedList = localStorage.getItem('checkedList')
-    checkedList = JSON.parse(checkedList)
-    let date = localStorage.getItem('date')
-    let hour = localStorage.getItem('hour')
+  componentDidMount() {
+    
+    //this.state.selectedServices === null ? this.props.history.push('/') : undefined
 
+    let checkedList = logic.localStorageGetItem("checkedList")
+    checkedList = JSON.parse(checkedList)
+
+    let date = logic.localStorageGetItem("date")
+    let hour = logic.localStorageGetItem("hour")
     this.setState({
       selectedServices: checkedList,
       bookingDate: date,
@@ -26,6 +29,7 @@ class ConfirmBooking extends Component {
   }
 
   createTheBookingUser = () => {
+<<<<<<< HEAD
     let token = localStorage.getItem('token')
     console.log('CONFIRM-TOKEN', token)
     if (token) {
@@ -47,6 +51,26 @@ class ConfirmBooking extends Component {
         }
       })
     }
+=======
+    let token = logic.localStorageGetItem("token")
+    logic.setToken(token)
+    createBooking().then(res => {
+      console.log(res)
+      if (res) {
+        swal({
+          type: 'success',
+          title: 'Reserva completada! ves a tu perfil!',
+        })
+        this.props.history.push('/profile')
+      } else {
+        let date = logic.localStorageGetItem("date")
+        console.log(date)
+        let _date = date.replace(/\,/g, "/")
+        console.log(_date)
+        this.props.history.push(`/calendar/${_date}`)
+      }
+    })
+>>>>>>> feature/style-booking-client
   }
 
   render() {
@@ -57,14 +81,17 @@ class ConfirmBooking extends Component {
           <div className="booking-times">
             <h2>Date: {this.state.bookingDate}</h2>
             <h3>Hour: {this.state.bookingHour}</h3>
+            <hr />
           </div>
           <div className="selected-services">
-            {this.state.selectedServices.map(service => {
+
+            { this.state.selectedServices.map(service => {
               return (
                 <ul>
                   <li>Service name: {service.serviceName}</li>
                   <li>Duration: {service.duration}min</li>
                   <li>Price: {service.price}€</li>
+                  <hr />
                 </ul>
               )
             })}

@@ -47,6 +47,7 @@ const logic = {
     return logicApi.listBookingsUser(userId)
   },
   
+<<<<<<< HEAD
   localStorageGetItem(item) {
     return localStorage.getItem(item)
   },
@@ -61,6 +62,26 @@ const logic = {
 
   }
 
+=======
+  localStorageGetItem(name, value) {
+    return localStorage.getItem(name, value)
+  },
+
+  localStorageSetItem(name, value) {
+    localStorage.setItem(name, value)
+  },
+
+  setToken(token){
+    logicApi.setToken(token)
+  },
+
+  deleteBooking(bookingId, userId){
+    return logicApi.deleteBooking(bookingId, userId)
+      .then(() => true)
+      .catch(({message}) => Promise.reject(message))
+  }
+  
+>>>>>>> feature/style-booking-client
 }
 
 export default logic
